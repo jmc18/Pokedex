@@ -1,3 +1,4 @@
 export const slicesStore = {
-  counterSlice: 'counter'
+  counterSlice: 'counter',
+  pokemonSlice: 'pokemon'
 }
