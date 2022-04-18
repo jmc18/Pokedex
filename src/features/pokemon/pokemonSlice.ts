@@ -3,6 +3,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import PokemonView from '../../models/PokemonView'
 import { slicesStore } from '../../utils/constants'
 
+//contants
+import { Colors } from '../../utils/constants'
+
 const initialState: PokemonView = {
   id: 1,
   name: '',
@@ -11,6 +14,7 @@ const initialState: PokemonView = {
   weight: 0,
   type: '',
   move: '',
+  color: Colors.unknown,
   stats: {
     hp: 0,
     attack: 0,
@@ -25,8 +29,17 @@ const pokemonSlice = createSlice({
   name: slicesStore.pokemonSlice,
   initialState,
   reducers: {
-    setPokemon: (state: PokemonView, action: PayloadAction<PokemonView>) => {
-      state = action.payload
+    setPokemon: (state, action: PayloadAction<PokemonView>) => {
+      const { payload } = action
+      state.id = payload.id
+      state.name = payload.name
+      state.image = payload.image
+      state.height = payload.height
+      state.weight = payload.weight
+      state.type = payload.type
+      state.move = payload.move
+      state.color = payload.color
+      state.stats = payload.stats
     }
   }
 })

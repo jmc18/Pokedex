@@ -6,9 +6,20 @@ export default class PokemonView {
   weight?: number
   type?: string
   move?: string
+  color?: string
   stats?: Stats
 
-  constructor(id: number, name: string, image?: string, height?: number, weight?: number, type?: string, move?: string, stats?: Stats) {
+  constructor(
+    id: number,
+    name: string,
+    image?: string,
+    height?: number,
+    weight?: number,
+    type?: string,
+    move?: string,
+    color?: string,
+    stats?: Stats
+  ) {
     this.id = id
     this.name = name
     this.image = image
@@ -16,6 +27,7 @@ export default class PokemonView {
     this.weight = weight
     this.type = type
     this.move = move
+    this.color = color
     this.stats = stats
   }
 }

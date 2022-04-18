@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Pokemon, PokemonClient } from 'pokenode-ts'
+import { PokemonClient } from 'pokenode-ts'
 
 export type RequestResponse = {
   response: any
@@ -8,15 +8,13 @@ export type RequestResponse = {
 
 export const useFetchPokemon = (pokenmonId: number): RequestResponse => {
   const [response, setResponse] = useState<any>()
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const getRequest = async (pokenmonId: number) => {
-      setIsLoading(true)
       try {
         const pokemonClient = new PokemonClient()
-        const pokemon = await pokemonClient.getPokemonById(pokenmonId)
-        setResponse(pokemon)
+        await pokemonClient.getPokemonById(pokenmonId).then((pokemon) => setResponse(pokemon))
       } catch (error: any) {
         console.log('Something went wrong', error)
       }

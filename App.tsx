@@ -10,9 +10,9 @@ import PokemonList from './src/components/PokemonList'
 export default function App() {
   return (
     <Provider store={store}>
-      <SafeAreaView>
+      <View>
         <PokemonList />
-      </SafeAreaView>
+      </View>
     </Provider>
   )
 }
