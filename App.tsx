@@ -10,6 +10,7 @@ import PokemonList from './src/components/PokemonList'
 export default function App() {
   return (
     <Provider store={store}>
+      <StatusBar />
       <View>
         <PokemonList />
       </View>
